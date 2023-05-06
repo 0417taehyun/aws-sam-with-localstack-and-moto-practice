@@ -1,0 +1,8 @@
+# Package
+.venv
+
+# Environment Variable
+env.json
+
+# Event
+event.json

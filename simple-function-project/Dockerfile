@@ -1,0 +1,11 @@
+FROM public.ecr.aws/lambda/python:3.9
+
+COPY app/ ${LAMBDA_TASK_ROOT}
+
+RUN /var/lang/bin/python3.9 -m pip install --upgrade pip
+RUN pip install -U poetry
+RUN poetry install --only main
+
+ENV PYTHONPATH="$PYTHONPATH:${LAMBDA_TASK_ROOT}"
+WORKDIR ${LAMBDA_TASK_ROOT}/src
+CMD ["main.lambda_handler"]
