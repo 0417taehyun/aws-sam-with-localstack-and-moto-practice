@@ -1,0 +1,17 @@
+Transform: AWS::Serverless-2016-10-31
+Description: A simple AWS Lambda
+
+Resources:
+  SimpleAWSLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.9
+      PackageType: Image
+      Timeout: 600
+      MemorySize: 1024
+      Environment:
+        Variables:
+          SLACK_BOT_TOKEN: "SLACK_BOT_TOKEN"
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./

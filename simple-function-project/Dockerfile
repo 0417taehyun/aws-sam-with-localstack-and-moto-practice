@@ -6,6 +6,6 @@ RUN /var/lang/bin/python3.9 -m pip install --upgrade pip
 RUN pip install -U poetry
 RUN poetry install --only main
 
-ENV PYTHONPATH="$PYTHONPATH:${LAMBDA_TASK_ROOT}"
+ENV PYTHONPATH="$PYTHONPATH:${LAMBDA_TASK_ROOT}/.venv/lib/python3.9/site-packages/"
 WORKDIR ${LAMBDA_TASK_ROOT}/src
 CMD ["main.lambda_handler"]

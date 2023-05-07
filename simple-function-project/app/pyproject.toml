@@ -8,8 +8,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-aws-sam-cli = "^1.82.0"
-localstack = "^2.0.2"
 slack-sdk = "^3.21.3"
 pydantic = "^1.10.7"
 
@@ -18,6 +16,9 @@ pre-commit = "^2.21.0"
 mypy = "^0.991"
 black = "^22.12.0"
 isort = "^5.11.4"
+
+[tool.poetry.group.build.dependencies]
+aws-sam-cli = "^1.82.0"
 
 [tool.black]
 line-length = 120

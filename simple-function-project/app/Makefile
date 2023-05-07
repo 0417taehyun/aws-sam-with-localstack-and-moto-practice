@@ -10,11 +10,7 @@ update:
 lint:
 	poetry run pre-commit install && poetry run pre-commit run
 
-.PHONY: run
-run:
-	poetry run sam local invoke -t ../template.yaml -e ../event.json --env-vars ../env.json
-
-.PHONY: test
-run:
-	poetry run pytest
-	
+.PHONY: local-run
+local-run:
+	poetry run sam build -t ../template.yaml --use-container && \
+	poetry run sam local invoke -t .aws-sam/build/template.yaml -e ../events/event.json --env-vars ../env.json
