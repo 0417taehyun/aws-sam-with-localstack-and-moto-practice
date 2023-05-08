@@ -10,9 +10,7 @@ class MessageService:
     def _parse_message(self, event: AWSLambdaEventBody) -> str:
         nickname: str = event.get("nickname")
         message: str = event.get("message")
-        return "Hello, World 33"
-        # return f"<!channel>\nThe below message was sent from {nickname}.\n\n```{message}```"
-        # return "changed again"
+        return f"<!channel>\nThe below message was sent from {nickname}.\n\n```{message}```"
 
     def send_message_to_slack(self, event: AWSLambdaEventBody) -> None:
         channel: str = event.get("channel")
