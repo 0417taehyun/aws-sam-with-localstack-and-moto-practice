@@ -12,9 +12,5 @@ lint:
 
 .PHONY: run
 run:
-	poetry run sam local invoke -t ../template.yaml -e ../event.json --env-vars ../env.json
-
-.PHONY: test
-run:
-	poetry run pytest
-	
+	poetry run sam build -t ../template.yaml && \
+	poetry run sam local invoke -t .aws-sam/build/template.yaml -e ../events/event.json --env-vars ../env.json --force-image-build
