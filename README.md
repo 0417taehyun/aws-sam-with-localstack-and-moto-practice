@@ -1,4 +1,4 @@
-# AWS SAM with LocalStack and Moto practice
+# AWS SAM with LocalStack practice
 
 ## What you can learn?
 
