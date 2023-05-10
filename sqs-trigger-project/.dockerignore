@@ -1,2 +1,12 @@
 # Package
-.venv
+app/.venv
+app/poetry.toml
+
+# AWS SAM
+app/.aws-sam
+
+# pre-commit
+app/.pre-commit-config.yaml
+
+# Makefile
+app/Makefile

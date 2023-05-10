@@ -2,19 +2,25 @@ Transform: AWS::Serverless-2016-10-31
 Description: AWS Lambda with AWS SQS
 
 Resources:
-  Type: AWS::Serverless::Function
-  Properties:
-    Runtime: python:3.9
-    PackageType: Image
-    Timeout: 600
-    Environment:
-      Variables:
-        SLACK_BOT_TOKEN: "SLACK_BOT_TOKEN"
-        AWS_SQS_NAME: "AWS_SQS_NAME"
+  AWSLambdaWithSQS:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python:3.9
+      PackageType: Image
+      Timeout: 600
+      MemorySize: 1024
+      Environment:
+        Variables:
+          SLACK_BOT_TOKEN: SLACK_BOT_TOKEN
+          AWS_SQS_NAME: AWS_SQS_NAME
 
-    Events:
-      SQSEvent:
-        Type: SQS
+      Events:
+        SQSEvent:
+          Type: SQS
           Properties:
             Queue:
               Ref: AWS_SQS_Name
+
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./

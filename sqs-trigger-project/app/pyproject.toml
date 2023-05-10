@@ -8,10 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-aws-sam-cli = "^1.82.0"
-localstack = "^2.0.2"
 slack-sdk = "^3.21.3"
 pydantic = "^1.10.7"
+
+[tool.poetry.group.local.dependencies]
+aws-sam-cli = "^1.82.0"
 
 [tool.poetry.group.linter.dependencies]
 pre-commit = "^2.21.0"
