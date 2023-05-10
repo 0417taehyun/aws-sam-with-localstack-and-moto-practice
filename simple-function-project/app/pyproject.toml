@@ -17,7 +17,7 @@ mypy = "^0.991"
 black = "^22.12.0"
 isort = "^5.11.4"
 
-[tool.poetry.group.build.dependencies]
+[tool.poetry.group.local.dependencies]
 aws-sam-cli = "^1.82.0"
 
 [tool.black]
