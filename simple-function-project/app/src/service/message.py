@@ -1,4 +1,3 @@
-from src.core import get_setting
 from src.custom import AWSLambdaEventBody
 from src.service.slack import SlackService
 

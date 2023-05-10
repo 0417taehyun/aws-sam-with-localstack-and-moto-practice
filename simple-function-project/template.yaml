@@ -13,5 +13,5 @@ Resources:
       MemorySize: 1024
       Environment:
         Variables:
-          SLACK_BOT_TOKEN: "SLACK_BOT_TOKEN"
-          PYTHONPATH: "PYTHONPATH"
+          SLACK_BOT_TOKEN: SLACK_BOT_TOKEN
+          PYTHONPATH: PYTHONPATH
