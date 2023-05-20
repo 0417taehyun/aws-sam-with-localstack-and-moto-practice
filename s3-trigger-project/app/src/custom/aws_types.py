@@ -2,29 +2,50 @@ from dataclasses import dataclass
 from typing import Optional, TypedDict
 
 
-class AWSSQSMessage(TypedDict):
-    channel: str
-    nickname: str
-    message: str
+class AWSS3UserIdentity(TypedDict):
+    principalId: str
 
 
-class AWSSQSAttribute(TypedDict):
-    ApproximateReceiveCount: str
-    SentTimestamp: str
-    SenderId: str
-    ApproximateFirstReceiveTimestamp: str
+class AWSS3Bucket(TypedDict):
+    name: str
+    ownerIdentity: AWSS3UserIdentity
+    arn: str
+
+
+class AWSS3Object(TypedDict):
+    key: str
+    size: int
+    eTag: str
+    sequencer: str
+
+
+class AWSS3(TypedDict):
+    s3SchemaVersion: str
+    configurationId: str
+    bucket: AWSS3Bucket
+    object: AWSS3Object
+
+
+class AWSS3RequestParameters(TypedDict):
+    sourceIPAddress: str
+
+
+AWSS3ResponseElements = TypedDict(
+    "AWSS3ResponseElements",
+    {"x-amz-request-id": str, "x-amz-id-2": str},
+)
 
 
 class AWSSQSRecord(TypedDict):
-    messageId: str
-    receiptHandle: str
-    body: str
-    attributes: AWSSQSAttribute
-    messageAttributes: Optional[dict]
-    md5OfBody: str
+    eventVersion: str
     eventSource: str
-    eventSourceARN: str
     awsRegion: str
+    eventTime: str
+    eventName: Optional[dict]
+    userIdentity: AWSS3UserIdentity
+    requestParameters: AWSS3RequestParameters
+    responseElements: AWSS3ResponseElements
+    s3: AWSS3
 
 
 class AWSLambdaEventBody(TypedDict):
