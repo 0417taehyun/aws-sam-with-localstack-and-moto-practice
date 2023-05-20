@@ -9,3 +9,7 @@ event.json
 
 # AWS SAM
 .aws-sam
+
+# Cache
+.mypy_cache
+__pycache__
